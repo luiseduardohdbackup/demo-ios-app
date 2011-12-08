@@ -6,7 +6,10 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "YAJLiOS/YAJL.h"
 #import "AppDelegate.h"
+#import "Deal.h"
+#import "DealsViewController.h"
 
 @implementation AppDelegate
 
@@ -14,8 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+  // Override point for customization after application launch.
+  
+  // Set a universal background image
+  UIView *bgView = [[UIView alloc] initWithFrame:[[self window] frame]];
+  [bgView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"wood-bg.png"]]];
+  [[self window] addSubview:bgView];
+  [bgView release];
+  
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

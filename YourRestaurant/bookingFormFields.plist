@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>fieldName</key>
+		<string>First name</string>
+		<key>placeholder</key>
+		<string>John</string>
+		<key>identifier</key>
+		<string>firstName</string>
+		<key>type</key>
+		<string>default</string>
+		<key>editable</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>fieldName</key>
+		<string>Last name</string>
+		<key>placeholder</key>
+		<string>Smith</string>
+		<key>identifier</key>
+		<string>lastName</string>
+		<key>type</key>
+		<string>default</string>
+		<key>editable</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>fieldName</key>
+		<string>Phone number</string>
+		<key>placeholder</key>
+		<string>01234 567 890</string>
+		<key>identifier</key>
+		<string>phoneNumber</string>
+		<key>type</key>
+		<string>phone</string>
+		<key>editable</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>fieldName</key>
+		<string>Email address</string>
+		<key>placeholder</key>
+		<string>johnsmith@example.com</string>
+		<key>identifier</key>
+		<string>emailAddress</string>
+		<key>type</key>
+		<string>email</string>
+		<key>editable</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>fieldName</key>
+		<string>Party size</string>
+		<key>placeholder</key>
+		<string>1</string>
+		<key>identifier</key>
+		<string>partySize</string>
+		<key>type</key>
+		<string>number</string>
+		<key>editable</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>fieldName</key>
+		<string>Date</string>
+		<key>placeholder</key>
+		<string>today</string>
+		<key>identifier</key>
+		<string>bookingDate</string>
+		<key>type</key>
+		<string>date</string>
+		<key>editable</key>
+		<false/>
+	</dict>
+</array>
+</plist>
