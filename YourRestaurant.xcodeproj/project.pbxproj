@@ -14,6 +14,7 @@
 		5E0B0F9C149F55170046DED7 /* BookingFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0B0F9B149F55170046DED7 /* BookingFormField.m */; };
 		5E0B0FC7149F67500046DED7 /* BookingFormController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0B0FC6149F67500046DED7 /* BookingFormController.m */; };
 		5E0B0FC9149F9B2E0046DED7 /* bookingFormFields.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0B0FC8149F9B2E0046DED7 /* bookingFormFields.plist */; };
+		5E0BE7A416C2CF7900327F2A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E0BE7A316C2CF7900327F2A /* Default-568h@2x.png */; };
 		5E58DAED14962CAA00DEEA4F /* Dish.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E58DAEC14962CAA00DEEA4F /* Dish.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5E58DAF21496495000DEEA4F /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E58DAF11496495000DEEA4F /* Menu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5E58DBBE14964DD100DEEA4F /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E58DAF614964DD000DEEA4F /* 01-refresh.png */; };
@@ -310,6 +311,7 @@
 		5E0B0FC5149F67500046DED7 /* BookingFormController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingFormController.h; sourceTree = "<group>"; };
 		5E0B0FC6149F67500046DED7 /* BookingFormController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingFormController.m; sourceTree = "<group>"; };
 		5E0B0FC8149F9B2E0046DED7 /* bookingFormFields.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bookingFormFields.plist; sourceTree = "<group>"; };
+		5E0BE7A316C2CF7900327F2A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5E58DAEB14962CAA00DEEA4F /* Dish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dish.h; sourceTree = "<group>"; };
 		5E58DAEC14962CAA00DEEA4F /* Dish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dish.m; sourceTree = "<group>"; };
 		5E58DAF01496495000DEEA4F /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
@@ -988,6 +990,7 @@
 		5E61B3D6149117E8002AC077 = {
 			isa = PBXGroup;
 			children = (
+				5E0BE7A316C2CF7900327F2A /* Default-568h@2x.png */,
 				5E689B2B149BAF96007E4153 /* Tom-At-101-Logo.png */,
 				5EE3B383149A636D00F24C01 /* Default.png */,
 				5E61B41314913324002AC077 /* images */,
@@ -1195,7 +1198,7 @@
 		5E61B3D8149117E8002AC077 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 5E61B3DB149117E8002AC077 /* Build configuration list for PBXProject "YourRestaurant" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1464,6 +1467,7 @@
 				5E0B0FC9149F9B2E0046DED7 /* bookingFormFields.plist in Resources */,
 				5EB1437914A0CDB5009B3EAC /* submit.png in Resources */,
 				5EB1437B14A0D063009B3EAC /* submit-2.png in Resources */,
+				5E0BE7A416C2CF7900327F2A /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1538,6 +1542,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1551,6 +1559,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LD_RUNPATH_SEARCH_PATHS = "";
@@ -1564,12 +1573,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LD_RUNPATH_SEARCH_PATHS = "";

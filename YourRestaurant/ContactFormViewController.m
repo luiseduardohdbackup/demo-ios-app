@@ -76,7 +76,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 
-  NSString *requestUrl = [NSString stringWithFormat:@"%s/%s", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], 'about'];
+  NSString *requestUrl = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], @"about"];
   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestUrl]];
 
   [request setCompletionBlock:^{

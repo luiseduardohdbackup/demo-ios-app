@@ -41,8 +41,8 @@
 
 - (void)viewDidLoad
 {
-  NSString *requestUrl = [NSString stringWithFormat:@"%s/%s", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], 'offers'];
-  __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestUrl];
+  NSString *requestUrl = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], @"offers"];
+  __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestUrl]];
   
   // this runs when the request completes
   [request setCompletionBlock:^{

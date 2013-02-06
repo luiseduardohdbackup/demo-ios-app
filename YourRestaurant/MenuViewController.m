@@ -40,7 +40,7 @@
 
 - (void)viewDidLoad
 {
-  NSString *requestUrl = [NSString stringWithFormat:@"%s/%s", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], 'menu'];
+  NSString *requestUrl = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], @"menu"];
   __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestUrl]];
   
   [request setCompletionBlock:^{
