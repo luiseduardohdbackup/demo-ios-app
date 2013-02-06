@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-     
+
     }
     return self;
 }
@@ -32,7 +32,7 @@
 }
 
 - (void)didSwipeLeft:(UISwipeGestureRecognizer *)swipeActionLeft {
-  NSLog(@"left swipe"); 
+  NSLog(@"left swipe");
 }
 
 - (void)didSwipeRight:(UISwipeGestureRecognizer *)swipeActionRight {
@@ -43,7 +43,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -56,7 +56,7 @@
   [swipeLeft setDelegate:self];
   [view addGestureRecognizer:swipeLeft];
   [swipeLeft release];
-  
+
   UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(didSwipeRight:)];
   [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
@@ -75,39 +75,40 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-  
-  ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://madefamousby.me/tom101/about"]];
-  
+
+  NSString *requestUrl = [NSString stringWithFormat:@"%s/%s", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], 'about'];
+  ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestUrl]];
+
   [request setCompletionBlock:^{
     NSData *response = [request responseData];
-    
+
     [self setAboutRestaurant:[response yajl_JSON]];
-    
+
     CLLocationCoordinate2D coord = {
-      .latitude = [[[self aboutRestaurant] objectForKey:@"latitude"] doubleValue], 
+      .latitude = [[[self aboutRestaurant] objectForKey:@"latitude"] doubleValue],
       .longitude = [[[self aboutRestaurant] objectForKey:@"longitude"] doubleValue]
     };
-    
+
     MKCoordinateSpan span = {.latitudeDelta = 0.1, .longitudeDelta = 0.1};
     MKCoordinateRegion region = {coord, span};
-    
+
     [[self map] removeAnnotations:[[self map] annotations]];
-    
-    
-    MKMapAnnotation *annotation = [[MKMapAnnotation alloc] 
-                                   initWithName:[[self aboutRestaurant] objectForKey:@"name"] 
-                                   address:[[self aboutRestaurant] objectForKey:@"area"] 
+
+
+    MKMapAnnotation *annotation = [[MKMapAnnotation alloc]
+                                   initWithName:[[self aboutRestaurant] objectForKey:@"name"]
+                                   address:[[self aboutRestaurant] objectForKey:@"area"]
                                    coordinate:coord];
     [[self map] addAnnotation:annotation];
     [annotation release];
-    [[self map] setRegion:region animated: YES];     
+    [[self map] setRegion:region animated: YES];
   }];
-  
+
   [request setFailedBlock:^{
     NSError *error = [request error];
-    NSLog(@"%@", error); 
+    NSLog(@"%@", error);
   }];
-  
+
   [request startAsynchronous];
   [self addSwipeGestureRecognisersToView:[self map]];
   [super viewDidLoad];
@@ -118,7 +119,7 @@
   [super viewDidUnload];
   [map release];
   [aboutRestaurant release];
-  
+
   map = nil;
   aboutRestaurant = nil;
 }
@@ -134,36 +135,36 @@
 #pragma mark - Map View Delegates
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
   static NSString *identifier = @"restaurantLocation";
-  
+
   if ([annotation isKindOfClass:[MKMapAnnotation class]]) {
     MKMapAnnotation *annotationLocation = (MKMapAnnotation *) annotation;
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [[self map] dequeueReusableAnnotationViewWithIdentifier:identifier];
-    
+
     if (annotationView == nil) {
       annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotationLocation reuseIdentifier:identifier] autorelease];
     } else {
       [annotationView setAnnotation:annotationLocation];
     }
-    
+
     [annotationView setEnabled:YES];
     [annotationView setCanShowCallout:YES];
     [annotationView setAnimatesDrop:YES];
     [annotationView setPinColor:MKPinAnnotationColorPurple];
-    
+
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fork-and-knife-white.png"]];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     [button addTarget:self action:@selector(showMoreInfo:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     [annotationView setLeftCalloutAccessoryView:imageView];
     [annotationView setRightCalloutAccessoryView:button];
-    
+
     [imageView release];
-    imageView = nil;    
-    
-    
+    imageView = nil;
+
+
     return annotationView;
   } else {
-   return nil; 
+   return nil;
   }
 }
 

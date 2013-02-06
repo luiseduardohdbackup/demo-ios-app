@@ -41,9 +41,8 @@
 
 - (void)viewDidLoad
 {
-   
-  NSURL *url = [NSURL URLWithString:
-                [NSString stringWithFormat:@"http://madefamousby.me/tom101/menu/%@", [self menuId]]];
+  NSString *requestUrl = [NSString stringWithFormat:@"%s/%s/%s", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], 'menu', [self menuId]];
+  NSURL *url = [NSURL URLWithString: requestUrl];
   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
   
   [request setCompletionBlock:^{

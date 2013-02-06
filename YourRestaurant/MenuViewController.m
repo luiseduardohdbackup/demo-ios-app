@@ -39,8 +39,9 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
-{  
-  __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:@"http://madefamousby.me/tom101/menu"]];
+{
+  NSString *requestUrl = [NSString stringWithFormat:@"%s/%s", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppApiUrl"], 'menu'];
+  __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:requestUrl]];
   
   [request setCompletionBlock:^{
     NSData *response = [request responseData];
